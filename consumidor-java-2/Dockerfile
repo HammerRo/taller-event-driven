@@ -8,5 +8,6 @@ RUN mvn clean package
 # Stage 2: Create the final image
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/target/consumidor-java-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+# --- LA LÍNEA CRÍTICA CORREGIDA ---
+COPY --from=build /app/target/consumidor-java-2-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
 CMD ["java", "-jar", "app.jar"]
