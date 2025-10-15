@@ -1,0 +1,1 @@
+mkdir -p taller-event-driven/{productor-python-1,consumidor-python-2,productor-nodejs-1,consumidor-nodejs-2,productor-java-1/src/main/java/com/example,consumidor-java-2/src/main/java/com/example,productor-python-3,consumidor-nodejs-4,escenario3}

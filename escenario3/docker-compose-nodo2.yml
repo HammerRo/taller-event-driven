@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  productor-python-3:
+    build: ../productor-python-3
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_TU_NODO_BROKER
+    depends_on:
+      - consumidor-nodejs-4
+
+  consumidor-nodejs-4:
+    build: ../consumidor-nodejs-4
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_TU_NODO_BROKER
+      
+  productor-nodejs-1:
+    build: ../productor-nodejs-1
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_TU_NODO_BROKER
+      
+  consumidor-java-2:
+    build: ../consumidor-java-2
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_TU_NODO_BROKER
