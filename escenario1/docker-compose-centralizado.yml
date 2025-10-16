@@ -1,0 +1,74 @@
+# escenario1/docker-compose-centralizado.yml
+
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - red_central
+
+  # --- AQUI VAN TODOS TUS 8 SERVICIOS ---
+  productor-python-1:
+    build: ../productor-python-1
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  consumidor-python-2:
+    build: ../consumidor-python-2
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  productor-nodejs-1:
+    build: ../productor-nodejs-1
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  consumidor-nodejs-2:
+    build: ../consumidor-nodejs-2
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  productor-java-1:
+    build: ../productor-java-1
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  consumidor-java-2:
+    build: ../consumidor-java-2
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  productor-python-3:
+    build: ../productor-python-3
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+  consumidor-nodejs-4:
+    build: ../consumidor-nodejs-4
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - red_central
+
+networks:
+  red_central:
+    driver: bridge
