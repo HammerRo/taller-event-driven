@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  productor-python-1:
+    build: ../productor-python-1
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  consumidor-python-2:
+    build: ../consumidor-python-2
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  productor-nodejs-1:
+    build: ../productor-nodejs-1
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  consumidor-nodejs-2:
+    build: ../consumidor-nodejs-2
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  productor-java-1:
+    build: ../productor-java-1
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  consumidor-java-2:
+    build: ../consumidor-java-2
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  productor-python-3:
+    build: ../productor-python-3
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
+
+  consumidor-nodejs-4:
+    build: ../consumidor-nodejs-4
+    environment:
+      - RABBITMQ_HOST=PON_LA_IP_PRIVADA_DE_NODO_2
